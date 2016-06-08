@@ -34,20 +34,20 @@ if sys.argv[-1] == 'publish':
     sys.exit()
 
 packages = [
-    'requests',
-    'requests.packages',
-    'requests.packages.chardet',
-    'requests.packages.urllib3',
-    'requests.packages.urllib3.packages',
-    'requests.packages.urllib3.contrib',
-    'requests.packages.urllib3.util',
-    'requests.packages.urllib3.packages.ssl_match_hostname',
+    'http_requests',
+    'http_requests.packages',
+    'http_requests.packages.chardet',
+    'http_requests.packages.urllib3',
+    'http_requests.packages.urllib3.packages',
+    'http_requests.packages.urllib3.contrib',
+    'http_requests.packages.urllib3.util',
+    'http_requests.packages.urllib3.packages.ssl_match_hostname',
 ]
 
 requires = []
 test_requirements = ['pytest>=2.8.0', 'pytest-httpbin==0.0.7', 'pytest-cov']
 
-with open('requests/__init__.py', 'r') as fd:
+with open('http_requests/__init__.py', 'r') as fd:
     version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
                         fd.read(), re.MULTILINE).group(1)
 
@@ -60,7 +60,7 @@ with open('HISTORY.rst', 'r', 'utf-8') as f:
     history = f.read()
 
 setup(
-    name='requests',
+    name='http_requests',
     version=version,
     description='Python HTTP for Humans.',
     long_description=readme + '\n\n' + history,
@@ -68,8 +68,8 @@ setup(
     author_email='me@kennethreitz.com',
     url='http://python-requests.org',
     packages=packages,
-    package_data={'': ['LICENSE', 'NOTICE'], 'requests': ['*.pem']},
-    package_dir={'requests': 'requests'},
+    package_data={'': ['LICENSE', 'NOTICE'], 'http_requests': ['*.pem']},
+    package_dir={'http_requests': 'http_requests'},
     include_package_data=True,
     install_requires=requires,
     license='Apache 2.0',
